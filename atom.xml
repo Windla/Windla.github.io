@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://windla.github.io</id>
     <title>Wind&apos;s blog</title>
-    <updated>2020-08-26T12:09:50.647Z</updated>
+    <updated>2020-08-26T12:10:21.612Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://windla.github.io"/>
     <link rel="self" href="https://windla.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://windla.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Wind&apos;s blog</rights>
     <entry>
-        <title type="html"><![CDATA[Gridea | live2d(看板娘) 手动添加教程 | 与主题联动 |New]]></title>
+        <title type="html"><![CDATA[Gridea | Live2D(看板娘) 手动添加教程 | 与主题联动 |New]]></title>
         <id>https://windla.github.io/post/wife2d/</id>
         <link href="https://windla.github.io/post/wife2d/">
         </link>
