@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://windla.github.io</id>
+    <title>Gridea</title>
+    <updated>2020-08-26T08:53:22.180Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://windla.github.io"/>
+    <link rel="self" href="https://windla.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://windla.github.io/images/avatar.png</logo>
+    <icon>https://windla.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2020, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Gridea | live2d(看板娘) 手动添加教程 New]]></title>
+        <id>https://windla.github.io/post/wife2d/</id>
+        <link href="https://windla.github.io/post/wife2d/">
+        </link>
+        <updated>2020-08-26T05:09:31.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1前言-准备">1.前言 | 准备</h1>
+<p>相关软件 Gridea<br>
+需改动主题文件*3 主题更新后需再次改动</p>
+<p>live2d <a href="https://windla.github.io/Website/assets.zip">相关文件下载</a><br>
+<s>live2d<a href="https://windla.github.io/post/live2d">旧版教程链接</a></s></p>
+<p>下载完后解压会得到一个<code>assets</code>的文件夹<br>
+把它导入到网站的根目录下<br>
+Gridea导入: <code>\Gridea\static</code>找到这个文件夹 直接丢进去就行了<br>
+<img src="https://windla.github.io/post-images/1598424346073.png" alt="" loading="lazy"></p>
+<p>然后依次打开<br>
+<code>\Gridea\themes\你要修改的主题</code> 中的 <code>config.json</code><br>
+<code>\Gridea\themes\你要修改的主题\templates\include</code>中的<code>head.ejs</code><br>
+<code>\Gridea\themes\你要修改的主题\templates\include</code>中的<code>footer.ejs</code></p>
+<h1 id="2修改文件">2.修改文件</h1>
+<ol start="2">
+<li>config.json 倒3行<br>
+记得加&quot;,&quot;  (第一个&quot;{&quot;的上一行尾 详细见下图)<br>
+<img src="https://windla.github.io/post-images/1598424937084.png" alt="" loading="lazy"><pre><code>        {
+         &quot;name&quot;: &quot;Waifu&quot;,
+         &quot;label&quot;: &quot;Waifu&quot;,
+         &quot;group&quot;: &quot;Waifu&quot;,
+         &quot;value&quot;: &quot;off&quot;,
+         &quot;type&quot;: &quot;select&quot;,
+         &quot;options&quot;: [{
+                 &quot;label&quot;: &quot;开&quot;,
+                 &quot;value&quot;: &quot;on&quot;
+             },
+             {
+                 &quot;label&quot;: &quot;关&quot;,
+                 &quot;value&quot;: &quot;off&quot;
+             }
+         ]
+     }
+</code></pre>
+</li>
+<li>head.ejs 末尾<pre><code>&lt;% if (site.customConfig.Waifu == &quot;on&quot;) { %&gt;
+   &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/assets/waifu.css&quot;/&gt;
+&lt;%}%&gt;
+</code></pre>
+</li>
+<li>footer.ejs 开头<pre><code>&lt;% if (site.customConfig.Waifu == &quot;on&quot;) { %&gt;
+     &lt;div class=&quot;waifu&quot;&gt;
+     &lt;div class=&quot;waifu-tips&quot;&gt;&lt;/div&gt;
+     &lt;canvas id=&quot;live2d&quot; class=&quot;live2d&quot;&gt;&lt;/canvas&gt;
+     &lt;div class=&quot;waifu-tool&quot;&gt;
+         &lt;span class=&quot;fui-home&quot;&gt;&lt;/span&gt;
+         &lt;span class=&quot;fui-chat&quot;&gt;&lt;/span&gt;
+         &lt;span class=&quot;fui-eye&quot;&gt;&lt;/span&gt;
+         &lt;span class=&quot;fui-user&quot;&gt;&lt;/span&gt;
+         &lt;span class=&quot;fui-photo&quot;&gt;&lt;/span&gt;
+         &lt;span class=&quot;fui-info-circle&quot;&gt;&lt;/span&gt;
+         &lt;span class=&quot;fui-cross&quot;&gt;&lt;/span&gt;
+     &lt;/div&gt;
+ &lt;/div&gt;
+ &lt;script src=&quot;/assets/waifu-tips.js&quot;&gt;&lt;/script&gt;
+ &lt;script src=&quot;/assets/live2d.js&quot;&gt;&lt;/script&gt;
+ &lt;script type=&quot;text/javascript&quot;&gt;
+     live2d_settings['modelId'] = 3;
+     live2d_settings['modelTexturesId'] = 0;
+ 	initModel(&quot;/assets/waifu-tips.json&quot;)
+ &lt;/script&gt;
+ &lt;%}%&gt;
+</code></pre>
+</li>
+</ol>
+<h1 id="3gridea设置">3.Gridea设置</h1>
+<p>然后打开Gridea 进入<code>主题-自定义-Waifu</code><br>
+将其打开 保存 然后预览或同步<br>
+右下角就会出现看板娘了</p>
+<h1 id="4后记">4.后记</h1>
+<p>由于看板娘的设置在<code>footer.ejs</code>中就已经写死了</p>
+<pre><code>        live2d_settings['modelId'] = 3;
+        live2d_settings['modelTexturesId'] = 0;
+</code></pre>
+<p>所以说改<code>waifu.css</code>并没有什么用<br>
+想改模型的话 找到这2条改一下就行了<br>
+控制台<code>F12</code>里面就有看板娘的编号了</p>
+<h1 id="相关文档-引用">相关文档 | 引用</h1>
+<p><a href="https://github.com/fghrsh/live2d_demo">https://github.com/fghrsh/live2d_demo</a><br>
+<a href="https://www.fghrsh.net/post/123.html">https://www.fghrsh.net/post/123.html</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[博客开发-任务清单]]></title>
+        <id>https://windla.github.io/post/dai-ban/</id>
+        <link href="https://windla.github.io/post/dai-ban/">
+        </link>
+        <updated>2020-04-17T15:37:34.000Z</updated>
+        <summary type="html"><![CDATA[<ul>
+<li>评论√<br>
+用的GitHub，valine实在是不会搞，因为会和Gridea冲突<br>
+(必须开启评论才会显示，这样子就会有2个评论系统)<br>
+还是滚回用Gitalk了，就是...经常502</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<ul>
+<li>评论√<br>
+用的GitHub，valine实在是不会搞，因为会和Gridea冲突<br>
+(必须开启评论才会显示，这样子就会有2个评论系统)<br>
+还是滚回用Gitalk了，就是...经常502</li>
+</ul>
+<!-- more -->
+<ul>
+<li>
+<p>访问量插件√<br>
+用的是Valine自带的插件，<br>
+找半夜才找到访问量插件是显示在上面的（与日期同行）<br>
+如果用LeanCloud &amp; Valine的话，是可以看后台数据的<br>
+冲突了就没办法了，目前暂时还没有解决方法</p>
+</li>
+<li>
+<p>访问量后台<br>
+原本是打算用UA的，后来发现进都进不去<br>
+注册都搞不了，不知道是什么问题<br>
+我有挂代理的说...<br>
+等哪天有空了再搞这个吧<br>
+反正我的网站很清凉...<br>
+而且40多的访问量（阅读量-单一文章）<br>
+都是我调试网站的访问量</p>
+</li>
+<li>
+<p>文章进度条<br>
+逛大佬们的博客的时候。看到一个博主用了进度条<br>
+搞得我手痒痒的，任务清单+1</p>
+</li>
+<li>
+<p>暂时没有了呢</p>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Pandownload跳过服务器验证的启动脚本]]></title>
+        <id>https://windla.github.io/post/pandownload/</id>
+        <link href="https://windla.github.io/post/pandownload/">
+        </link>
+        <updated>2020-04-17T06:03:53.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>前言：<br>
+Pandowload的作者给抓了，服务器在（15）16号的时候炸了<br>
+官网炸了<br>
+<img src="https://windla.github.io/post-images/1587104148136.png" alt="" loading="lazy"><br>
+<img src="https://windla.github.io/post-images/1587104226215.png" alt="" loading="lazy"><br>
+知乎链接:<a href="https://zhuanlan.zhihu.com/p/130963810">https://zhuanlan.zhihu.com/p/130963810</a></li>
+</ul>
+<p>博主在查找资料的时候，看到了这个<br>
+某营销号链接:      <strong>现在的营销号没两把脑子都不敢出来</strong><br>
+<a href="https://baijiahao.baidu.com/s?id=1664194217641468534&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1664194217641468534&amp;wfr=spider&amp;for=pc</a><br>
+<img src="https://windla.github.io/post-images/1587104431038.png" alt="" loading="lazy"></p>
+<p>现在的话，服务器是已经恢复了<br>
+据说是有github的老哥接管了服务器<br>
+问题是作者给抓了，也有可能是 <s>钓鱼执法</s></p>
+<ul>
+<li>正文：<br>
+自建服务器的方法<br>
+在大佬的基础上修改(更准确的教程)（视频教程刚挂不久）<br>
+链接：<a href="https://www.bilibili.com/read/cv5641021">https://www.bilibili.com/read/cv5641021</a></li>
+</ul>
+<p>hosts文件加上<br>
+<code>127.0.0.1 pandownload</code></p>
+<p>下载好文件之后，在文件目录(api同目录下）<br>
+新建一个<code>start.bat</code>和<code>start-server.ps1</code></p>
+<p>start.bat<br>
+<code>start &quot;&quot; &quot;你的start-server.ps1目录\start-server.ps1&quot;</code><br>
+<code>TIMEOUT /T 1</code><br>
+<code>start &quot;&quot; &quot;你的网盘目录\PanDownload.exe&quot;</code></p>
+<p>start-server.ps1<br>
+<code>python -m http.server --bind 0.0.0.0 80</code></p>
+<p>这些就是启动文件了，具体教程见上面的那个链接。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Live2d安装到吃灰]]></title>
+        <id>https://windla.github.io/post/live2d/</id>
+        <link href="https://windla.github.io/post/live2d/">
+        </link>
+        <updated>2020-04-16T13:03:11.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>前言：<br>
+逛博客的时候看到有些大佬用着live2d，是真的好看。<br>
+手也是停不下来<br>
+由于自己啥都不会，搞了一整天，还不是最优方案</li>
+</ul>
+<p>先贴个地址<br>
+<a href="https://github.com/fghrsh/live2d_demo">https://github.com/fghrsh/live2d_demo</a></p>
+<ul>
+<li>指导文档：<br>
+常规方式引入<br>
+在 </head> 前引入 waifu.css 样式表<br>
+在 </body> 前引入 waifu-tips.js 和 live2d.js<br>
+在 </body> 前插入 初始化 JS，可在 初始化前 设置参数</li>
+</ul>
+<pre><code>&lt;html&gt;
+&lt;head&gt;
+
+        · · ·   · · ·
+
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://www.example.com/path/to/waifu.css&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+        · · ·   · · ·
+
+    &lt;div class=&quot;waifu&quot;&gt;
+        &lt;div class=&quot;waifu-tips&quot;&gt;&lt;/div&gt;
+        &lt;canvas id=&quot;live2d&quot; class=&quot;live2d&quot;&gt;&lt;/canvas&gt;
+        &lt;div class=&quot;waifu-tool&quot;&gt;
+            &lt;span class=&quot;fui-home&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;fui-chat&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;fui-eye&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;fui-user&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;fui-photo&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;fui-info-circle&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;fui-cross&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script src=&quot;path/to/waifu-tips.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;path/to/live2d.js&quot;&gt;&lt;/script&gt;
+    
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        live2d_settings['modelId'] = 1;
+        live2d_settings['modelTexturesId'] = 87;
+    	initModel(&quot;https://www.example.com/path/to/waifu-tips.json&quot;)
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>博主用的是Gridea，由于在上传文件到github的过程中，会覆盖掉github的文件<br>
+包括本地的output文件夹内的文件，所以说，直接改index.html是不行的</p>
+<p>不过还是有一些方法的，靠修改主题内文件<br>
+弊端就是主题升级之后可能要重新修改，或者可以和主题制作者联系（简称：打钱）</p>
+<p>博主的主题是Chic<br>
+打开对应的地址Gridea\themes\Chic\templates（不同主题的可能不一样）<br>
+先找到index.ejs<br>
+这个文件就是主页的文件了（可修改）<br>
+安装上面的指导文档导入，然后保存<br>
+然后把带.ejs后缀的文件全改了（有一些不符合指导文档里面的格式的就不用改了）<br>
+这是一个比较笨的方法<br>
+也可以通过修改<code>main.less</code>文件来达到全局效果，别问博主为什么不这么做，问就是不会，而且我的主题用了CDN，这是README里面写的，反正博主还是不会<br>
+<code>因为采用CDN的方式，main.less 为空文件修改后没啥用，详情见head.ejs自己修改路径</code></p>
+<p>记得要修改里面的链接地址，没问题的话，要改4个地址</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MusicTools(音乐下载)]]></title>
+        <id>https://windla.github.io/post/musictools/</id>
+        <link href="https://windla.github.io/post/musictools/">
+        </link>
+        <updated>2020-04-15T09:56:35.000Z</updated>
+        <content type="html"><![CDATA[<p>最近的歌单里面的歌要么vip要么连听都不让听<br>
+这谁顶的住啊，一次逛b站的时候看到了一个软件<br>
+至于为什么那么多软件，我选这个<br>
+主要还是因为，这个软件的设计很像Pandownload<br>
+而且还是全平台，能不香吗</p>
+<p>官网：http://tool.yijingying.com/musictools/<br>
+官网下载链接(蓝奏云)：https://www.lanzous.com/b06jopyd</p>
+<p>网站提示：低调使用，无需宣传</p>
+<p>也不知道能活多久...</p>
+]]></content>
+    </entry>
+</feed>
