@@ -2,19 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://windla.github.io</id>
     <title>Wind&apos;s blog</title>
-    <updated>2020-08-28T05:35:09.677Z</updated>
+    <updated>2021-01-02T11:26:14.860Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://windla.github.io"/>
     <link rel="self" href="https://windla.github.io/atom.xml"/>
     <subtitle>没有描述</subtitle>
     <logo>https://windla.github.io/images/avatar.png</logo>
     <icon>https://windla.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Wind&apos;s blog</rights>
+    <rights>All rights reserved 2021, Wind&apos;s blog</rights>
     <entry>
-        <title type="html"><![CDATA[Gridea | Live2D(看板娘) 手动添加教程 | 与主题联动 |New]]></title>
-        <id>https://windla.github.io/post/wife2d/</id>
-        <link href="https://windla.github.io/post/wife2d/">
+        <title type="html"><![CDATA[关于小爱同学For Win]]></title>
+        <id>https://windla.github.io/post/guan-yu-xiao-ai-tong-xue-for-win/</id>
+        <link href="https://windla.github.io/post/guan-yu-xiao-ai-tong-xue-for-win/">
         </link>
-        <updated>2020-08-26T05:09:31.000Z</updated>
+        <updated>2021-01-02T11:20:53.000Z</updated>
     </entry>
 </feed>
