@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://windla.github.io</id>
+    <title>Wind&apos;s blog</title>
+    <updated>2023-01-16T12:27:04.547Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://windla.github.io"/>
+    <link rel="self" href="https://windla.github.io/atom.xml"/>
+    <subtitle>没有描述</subtitle>
+    <logo>https://windla.github.io/images/avatar.png</logo>
+    <icon>https://windla.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, Wind&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[关于小爱同学For PC | Windows]]></title>
+        <id>https://windla.github.io/post/guan-yu-xiao-ai-tong-xue-for-win/</id>
+        <link href="https://windla.github.io/post/guan-yu-xiao-ai-tong-xue-for-win/">
+        </link>
+        <updated>2021-01-02T11:20:53.000Z</updated>
+    </entry>
+</feed>
